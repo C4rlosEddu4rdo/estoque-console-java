@@ -34,8 +34,8 @@ public class ProdutoService {
         for (ProdutoEntity Produto : PRODUTOS) {
             if (Produto.getId().equals(id)) {
                 Produto.setEstoqueAtual(Produto.getEstoqueAtual() + entrada);
+                System.out.println("Estoque atualizado com sucesso!");
             }
-            System.out.println("Estoque atualizado com sucesso!");
         }
     }
     public void saidaDeEstoque(long id,int saida) {
@@ -43,10 +43,10 @@ public class ProdutoService {
             if (Produto.getId().equals(id)) {
                 if (Produto.getEstoqueAtual() >= saida) {
                     Produto.setEstoqueAtual(Produto.getEstoqueAtual() - saida);
+                    System.out.println("Estoque atualizado sucesso!");
                 }else{
                     throw new EstoqueInsuficiente("Estoque não pode ficar negativo, tente novamente.");
                 }
-                System.out.println("Estoque atualizado sucesso!");
             }
         }
     }
